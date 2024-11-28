@@ -1,0 +1,5 @@
+#App Dependency
+flask
+#Testing Dependency
+pylint
+pytest-cov
