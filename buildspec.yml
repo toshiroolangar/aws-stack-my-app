@@ -19,6 +19,7 @@ phases:
     commands:
       - echo Build started `date`
       - echo "$docker_password" | docker login -u "$docker_email" --password-stdin    
-      - docker build -t "$docker_image_NAME:latest" .
-      - docker tag "$docker_image_NAME":latest "$docker_registry_urlL":latest
-      - docker push "$docker_registry_urlL":latest
+      - docker build -t "$docker_image":latest .
+      - docker tag "$docker_image_NAME":latest "$docker_registry_url":latest
+      - docker push "$docker_registry_url":latest
+      - echo $docker_password
