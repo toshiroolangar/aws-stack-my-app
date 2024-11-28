@@ -22,4 +22,4 @@ phases:
       - docker build -t "$docker_image":latest .
       - docker tag "$docker_image_NAME":latest "$docker_registry_url":latest
       - docker push "$docker_registry_url":latest
-      - echo $docker_password
+      - echo "$docker_password"
