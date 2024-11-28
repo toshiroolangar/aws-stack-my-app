@@ -2,11 +2,7 @@ version: 0.2
 
 env: 
   variables:
-    docker_image: simple-api
-    docker_registry_url: toshiiiiiiii/prepo_shi
-    docker_email: toshi.olangar04@gmail.com
-  secrets-manager:
-    docker_password: "docker-password1"
+  ecr_repo: 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops
 
 phases:
   install:
@@ -15,11 +11,16 @@ phases:
       - apt-get update -y
       - python -m pip install --upgrade pip
       - pip install -r requirements.txt
-  build:
+  test_code:
     commands:
-      - echo Build started `date`
-      - echo "$docker_password" | docker login -u "$docker_email" --password-stdin    
-      - docker build -t "$docker_image":latest .
-      - docker tag "$docker_image_NAME":latest "$docker_registry_url":latest
-      - docker push "$docker_registry_url":latest
-      - echo "$docker_password"
+      - echo Entered test phase, cloning the code
+      - git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app      
+      - cd my-app
+      - pylint app.py
+      - pytest --cov=app --cov-report=html
+  pre_build:
+    commands:
+      - echo Entered pre_build phase
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 167295297769.dkr.ecr.us-east-2.amazonaws.com
+      - docker build -t aws-devops .
+      - docker tag aws-devops:latest 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops:latest
