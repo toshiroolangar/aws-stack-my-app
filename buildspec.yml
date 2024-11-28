@@ -1,9 +1,10 @@
 version: 0.2
 
 env: 
-  docker_image: simple-api
-  docker_registry_urlL: toshiiiiiiii/prepo_shi
-  docker_email: toshi.olangar04@gmail.com
+  variables:
+    docker_image: simple-api
+    docker_registry_url: toshiiiiiiii/prepo_shi
+    docker_email: toshi.olangar04@gmail.com
   secrets-manager:
     docker_password: "docker-password"
 
