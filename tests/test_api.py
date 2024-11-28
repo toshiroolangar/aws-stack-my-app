@@ -1,5 +1,5 @@
 import pytest
-from app import app, products
+from app import app
 
 def test_get_products():
     response = app.test_client().get('/')
