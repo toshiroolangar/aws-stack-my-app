@@ -27,6 +27,11 @@ phases:
       - docker build -t aws-devops .
       - docker tag aws-devops:latest 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops:latest
 
+  post_build:
+    commands:
+      - echo Entered post_build phase
+      - docker push 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops:latest
+      
 reports:
   pylint-report:
     files:
