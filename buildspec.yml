@@ -2,7 +2,7 @@ version: 0.2
 
 env: 
   variables:
-  ecr_repo: 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops
+    ecr_repo: 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops
 
 phases:
   install:
