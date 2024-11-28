@@ -1,0 +1,23 @@
+version: 0.2
+
+env: 
+  DOCKER_IMAGE: simple-api
+  DOCKER_REGISTRY_URL: toshiiiiiiii/prepo_shi
+  DOCKER_EMAIL: toshi.olangar04@gmail.com
+  secrets-manager:
+    DOCKER_PASSWORD: "docker-password"
+
+phases:
+  install:
+    commands:
+      - echo Entered install phase
+      - apt-get update -y
+      - python -m pip install --upgrade pip
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo Build started `date`
+      - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_EMAIL" --password-stdin    
+      - docker build -t "$DOCKER_IMAGE_NAME:latest" .
+      - docker tag "$DOCKER_IMAGE_NAME":latest "$DOCKER_REGISTRY_URL":latest
+      - docker push "$DOCKER_REGISTRY_URL":latest
