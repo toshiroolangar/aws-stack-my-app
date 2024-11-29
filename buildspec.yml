@@ -28,6 +28,7 @@ phases:
       - docker build -t aws-devops .
       - docker tag aws-devops:${BUILD_DATE} $ecr_repo:${BUILD_DATE}
       - echo aws-devops:${BUILD_DATE} $ecr_repo
+      - docker image ls 
 
   post_build:
     commands:
