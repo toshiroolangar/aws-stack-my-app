@@ -25,7 +25,7 @@ phases:
       - BUILD_DATE=$(date +%Y%m%d-%H%M%S)
       - echo Entered build phase
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 167295297769.dkr.ecr.us-east-2.amazonaws.com
-      - docker build -t my-app .
+      - docker build -t my-app:${BUILD_DATE} .
       - docker tag my-app:${BUILD_DATE} $ecr_repo:${BUILD_DATE}
 
   post_build:
