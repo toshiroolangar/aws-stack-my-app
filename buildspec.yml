@@ -22,16 +22,16 @@ phases:
       - pytest --cov=app --cov-report=html
   build:
     commands:
-      - BUILD_DATE=$(date +%Y%m%d-%H%M%S)
+      - BUILD_DATE=$(date +%Y%m%d)
       - echo Entered build phase
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 167295297769.dkr.ecr.us-east-2.amazonaws.com
-      - docker build -t testspace/aws-devops .
-      - docker tag testspace/aws-devops:${BUILD_DATE} $ecr_repo:${BUILD_DATE}
+      - docker build -t aws-devops .
+      - docker tag aws-devops:${BUILD_DATE} $ecr_repo:${BUILD_DATE}
       - echo aws-devops:${BUILD_DATE} $ecr_repo
 
   post_build:
     commands:
-      - BUILD_DATE=$(date +%Y%m%d-%H%M%S)
+      - BUILD_DATE=$(date +%Y%m%d)
       - echo Entered post_build phase
       - docker push $ecr_repo:${BUILD_DATE}
       - echo $ecr_repo:${BUILD_DATE}
