@@ -26,7 +26,7 @@ phases:
       - echo Entered build phase
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 167295297769.dkr.ecr.us-east-2.amazonaws.com
       - docker build -t aws-devops .
-      - docker tag aws-devops:${BUILD_DATE} $ecr_repo:${BUILD_DATE}
+      - docker tag aws-devops $ecr_repo:${BUILD_DATE}
       - echo aws-devops:${BUILD_DATE} $ecr_repo
       - docker image ls 
 
