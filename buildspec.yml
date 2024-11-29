@@ -16,7 +16,7 @@ phases:
       - echo Entered test phase, cloning the code
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
-      - git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/aws-devops
+      - git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app
       - cd aws-devops
       - pylint app.py --output-format=json > reports/pylint-report.json || true
       - pytest --cov=app --cov-report=html
