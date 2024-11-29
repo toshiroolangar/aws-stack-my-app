@@ -17,7 +17,7 @@ phases:
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
       - git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app
-      - cd aws-devops
+      - cd my-app
       - pylint app.py --output-format=json > reports/pylint-report.json || true
       - pytest --cov=app --cov-report=html
   build:
