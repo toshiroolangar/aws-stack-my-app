@@ -35,6 +35,7 @@ phases:
       - echo Entered post_build phase
       - docker push $ecr_repo:${BUILD_DATE}
       - echo $ecr_repo:${BUILD_DATE}
+      - codebuild-breakpoint
 
 reports:
   pylint-report:
