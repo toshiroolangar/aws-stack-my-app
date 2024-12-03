@@ -1,0 +1,26 @@
+version: 0.0
+os: Linux
+files: 
+  - source: /
+    destination: /home/ec2-user/app
+hooks:
+  StopApplication:
+    - location: scripts/stop_container.sh
+      timeout: 300
+      runas: root
+  BeforeInstall: 
+    - location: scripts/cleanup_instance.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: script/pull_image.sh
+      timeout: 300
+      runas: root
+  StartApplication:
+    - location: script/start_container.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: script/validate.sh
+      timeout: 300
+      runas: root
