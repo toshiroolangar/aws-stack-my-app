@@ -3,7 +3,9 @@ version: 0.2
 env: 
   variables:
     ecr_repo: 167295297769.dkr.ecr.us-east-2.amazonaws.com/testspace/aws-devops
-
+    region: us-east-2
+    account_id: 167295297769
+    code_url: https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app
 phases:
   install:
     commands:
@@ -16,7 +18,7 @@ phases:
       - echo Entered test phase, cloning the code
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
-      - git clone https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app
+      - git clone ${code_url}
       - cd my-app
       - pylint app.py --output-format=json > reports/pylint-report.json || true
       - pytest --cov=app --cov-report=html
@@ -24,7 +26,7 @@ phases:
     commands:
       - BUILD_DATE=$(date +%Y%m%d)
       - echo Entered build phase
-      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 167295297769.dkr.ecr.us-east-2.amazonaws.com
+      - aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${account_id}.dkr.ecr.${region}.amazonaws.com
       - docker build -t aws-devops .
       - docker tag aws-devops $ecr_repo:${BUILD_DATE}
       - echo aws-devops:${BUILD_DATE} $ecr_repo
