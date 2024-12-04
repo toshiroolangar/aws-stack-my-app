@@ -44,5 +44,5 @@ phases:
 
 artifacts:
   files:
-    - scripts/**/*
+    - scripts/*
   discard-paths: yes
