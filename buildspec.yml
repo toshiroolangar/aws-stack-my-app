@@ -42,12 +42,6 @@ phases:
       - printf '{"Version":"1.0"}'
 
 
-reports:
-  pylint-report:
-    files:
-      - reports/pylint-report.json
-    file-format: JSON
-
 artifacts:
   files:
     - scripts/*
