@@ -38,12 +38,14 @@ phases:
   post_build:
     commands:
       - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
-      - mkdir -p scripts
-      - cp deployment/scripts/* scripts/
-      - ls -lsah scripts/
-      - chmod +x scripts/*
+      - mkdir -p ./scripts
+      - cp -rv ./deployment/scripts/* ./scripts/
+      - ls -lsah ./scripts/
+      - chmod +x ./scripts/*
+      - pwd && ls -lsah
 
 artifacts:
   files:
-    - scripts/**/*
+    - '**/*'
+  base-directory: scripts
   discard-paths: no
