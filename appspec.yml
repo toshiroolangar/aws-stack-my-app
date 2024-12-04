@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files: 
   - source: /deployment/scripts
-    destination: /home/ec2-user/app
+    destination: /home/ec2-user/app/scripts
 hooks:
   StopApplication:
     - location: deployment/scripts/stop_container.sh
