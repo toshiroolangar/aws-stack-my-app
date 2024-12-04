@@ -38,10 +38,11 @@ phases:
     commands:
       - mkdir -p scripts
       - cp deployment/scripts/* scripts/
+      - ls -lsah scripts/
       - chmod +x scripts/*
       - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > imageDefinitions.json
 
 
 artifacts:
   files:
-    - scripts/**/*
+    - deployment/scripts/*
