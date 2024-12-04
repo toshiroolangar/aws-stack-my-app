@@ -44,5 +44,8 @@ phases:
 
 artifacts:
   files:
-    - scripts/*.sh
+    - scripts/stop_container.sh
+    - scripts/cleanup_instance.sh
+    - script/start_container.sh
+    - script/pull_image.sh
   discard-paths: yes
