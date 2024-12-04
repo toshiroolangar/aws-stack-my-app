@@ -46,3 +46,4 @@ phases:
 artifacts:
   files:
     - deployment/scripts/*
+  discard-paths: no

@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files: 
-  - source: /
+  - source: /deployment/scripts
     destination: /home/ec2-user/app
 hooks:
   StopApplication:
