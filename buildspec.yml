@@ -36,7 +36,6 @@ phases:
 
   post_build:
     commands:
-      - cd /home/ec2-user/
       - mkdir -p scripts
       - cp deployment/scripts/* scripts/
       - chmod +x scripts/*
