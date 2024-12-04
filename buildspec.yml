@@ -36,6 +36,7 @@ phases:
 
   post_build:
     commands:
+      - cd /home/ec2-user/
       - mkdir -p scripts
       - cp deployment/scripts/* scripts/
       - chmod +x scripts/*
@@ -47,3 +48,12 @@ reports:
     files:
       - reports/pylint-report.json
     file-format: JSON
+
+artifacts:
+  files:
+    - scripts/*
+    - reports/*
+    - reports/pylint-report.json
+    - reports/coverage.html
+    - reports/index.html
+  discard-paths: yes
