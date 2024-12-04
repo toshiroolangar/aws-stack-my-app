@@ -6,6 +6,7 @@ env:
     region: us-east-2
     account_id: 167295297769
     code_url: https://git-codecommit.us-east-2.amazonaws.com/v1/repos/my-app
+  
 phases:
   install:
     commands:
