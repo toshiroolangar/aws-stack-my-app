@@ -51,8 +51,4 @@ reports:
 artifacts:
   files:
     - scripts/*
-    - reports/*
-    - reports/pylint-report.json
-    - reports/coverage.html
-    - reports/index.html
   discard-paths: yes
