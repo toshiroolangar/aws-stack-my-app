@@ -46,6 +46,5 @@ artifacts:
   files:
     - scripts/stop_container.sh
     - scripts/cleanup_instance.sh
-    - script/start_container.sh
-    - script/pull_image.sh
-  discard-paths: yes
+    - scripts/start_container.sh
+    - scripts/pull_image.sh
