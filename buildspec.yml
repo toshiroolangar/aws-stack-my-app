@@ -42,7 +42,7 @@ phases:
       - cp -rv ./deployment/scripts/* ./scripts/
       - ls -lsah ./scripts/
       - chmod +x ./scripts/*
-      - pwd && ls -lsah
+      - pwd && ls -lsah ./deployment
 
 artifacts:
   files:
