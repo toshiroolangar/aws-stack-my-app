@@ -39,10 +39,10 @@ phases:
       - mkdir -p scripts
       - cp deployment/scripts/* scripts/
       - chmod +x scripts/*
-      - printf '{"Version":"1.0"}'
+      - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > imageDefinitions.json
 
 
 artifacts:
   files:
-    - scripts/*
+    - scripts/**/*
   discard-paths: yes
