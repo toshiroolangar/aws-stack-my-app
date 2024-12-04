@@ -5,22 +5,22 @@ files:
     destination: /home/ec2-user/app
 hooks:
   StopApplication:
-    - location: scripts/stop_container.sh
+    - location: deployment/scripts/stop_container.sh
       timeout: 300
       runas: root
   BeforeInstall: 
-    - location: scripts/cleanup_instance.sh
+    - location: deployment/scripts/cleanup_instance.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: scripts/pull_image.sh
+    - location: deployment/scripts/pull_image.sh
       timeout: 300
       runas: root
   StartApplication:
-    - location: scripts/start_container.sh
+    - location: deployment/scripts/start_container.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: scripts/validate.sh
+    - location: deployment/scripts/validate.sh
       timeout: 300
       runas: root
