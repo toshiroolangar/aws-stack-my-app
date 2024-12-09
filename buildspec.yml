@@ -39,10 +39,10 @@ phases:
     commands:
       - mkdir -p ./scripts
       - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
-      - cp appspec.yaml ./scripts/
+      - cp ./appspec.yaml ./scripts/
       - cp -rv ./deployment/scripts/* ./scripts/
       - chmod +x ./scripts/*
-      - pwd && ls -lsah
+      - pwd && ls -lsah && ls -lsah ./scripts
 
 artifacts:
   files:
