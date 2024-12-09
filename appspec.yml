@@ -1,26 +1,30 @@
 version: 0.0
 os: linux
 files: 
-  - source: deployment/scripts
+  - source: scripts
     destination: /home/ec2-user/app/scripts
 hooks:
   StopApplication:
-    - location: deployment/scripts/stop_container.sh
+    - location: scripts/stop_container.sh
+      timeout: 300
+      runas: root
+  KickStart:
+    - location: scripts/kickstart.sh
       timeout: 300
       runas: root
   BeforeInstall: 
-    - location: deployment/scripts/cleanup_instance.sh
+    - location: scripts/cleanup_instance.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: deployment/scripts/pull_image.sh
+    - location: scripts/pull_image.sh
       timeout: 300
       runas: root
   StartApplication:
-    - location: deployment/scripts/start_container.sh
+    - location: scripts/start_container.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: deployment/scripts/validate.sh
+    - location: scripts/validate.sh
       timeout: 300
       runas: root
