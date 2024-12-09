@@ -42,6 +42,7 @@ phases:
       - cp appspec.yaml ./scripts/
       - cp -rv ./deployment/scripts/* ./scripts/
       - chmod +x ./scripts/*
+      - pwd && ls -lsah
 
 artifacts:
   files:
