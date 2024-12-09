@@ -47,5 +47,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: scripts
+  base-directory: my-app/scripts
   discard-paths: no
