@@ -1,26 +1,26 @@
 version: 0.0
 os: linux
 files: 
-  - source: /scripts/
+  - source: /
     destination: /home/ec2-user/app/scripts
 hooks:
   KickStart:
-    - location: scripts/kickstart.sh
+    - location: kickstart.sh
       timeout: 300
       runas: root
   BeforeInstall: 
-    - location: scripts/stop_container.sh
+    - location: stop_container.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: scripts/pull_image.sh
+    - location: pull_image.sh
       timeout: 300
       runas: root
   StartApplication:
-    - location: scripts/start_container.sh
+    - location: start_container.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: scripts/validate.sh
+    - location: validate.sh
       timeout: 300
       runas: root
