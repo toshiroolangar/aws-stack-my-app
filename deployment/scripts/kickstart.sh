@@ -26,3 +26,4 @@ if [[ $docker_installed == 0 ]]; then
     sudo usermod -a -G docker ec2-user
     sudo systemctl enable docker
 else echo "Docker agent is installed"
+fi
