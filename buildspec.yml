@@ -40,13 +40,13 @@ phases:
       - pwd && ls -lsah
       - mkdir -p ./scripts
       - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
-      - cp ./appspec.yaml ./scripts/
+      - cp ./appspec.yml ./scripts/
       - cp -rv ./deployment/scripts/* ./scripts/
       - chmod +x ./scripts/*
 
 artifacts:
   files:
     - '**/*'
-    - appspec.yaml
+    - appspec.yml
   base-directory: my-app/scripts
   discard-paths: no
