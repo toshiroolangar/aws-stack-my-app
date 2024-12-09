@@ -4,16 +4,12 @@ files:
   - source: scripts
     destination: /home/ec2-user/app/scripts
 hooks:
-  StopApplication:
-    - location: scripts/stop_container.sh
-      timeout: 300
-      runas: root
   KickStart:
     - location: scripts/kickstart.sh
       timeout: 300
       runas: root
   BeforeInstall: 
-    - location: scripts/cleanup_instance.sh
+    - location: scripts/stop_container.sh
       timeout: 300
       runas: root
   AfterInstall:
