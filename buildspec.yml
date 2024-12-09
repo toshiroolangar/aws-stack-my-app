@@ -37,8 +37,8 @@ phases:
 
   post_build:
     commands:
-      - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
       - mkdir -p ./scripts
+      - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
       - cp -rv ./deployment/scripts/* ./scripts/
       - ls -lsah ./scripts/
       - chmod +x ./scripts/*
