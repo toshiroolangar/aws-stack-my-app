@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /home/ec2-user/app/scripts
 hooks:
-  KickStart:
+  BeforeInstall:
     - location: kickstart.sh
       timeout: 300
       runas: root
