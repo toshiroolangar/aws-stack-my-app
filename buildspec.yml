@@ -45,11 +45,11 @@ phases:
       - chmod +x ./scripts/*
       - cat ./scripts/stop_container.sh
       - cat ./deployment/scripts/stop_container.sh
-      - cat ./appspec.yml && ls -lsah ./scripts/
+      - cat ./appspec.yml && ls -lsah ./scripts/ && pwd
 
 artifacts:
   files:
-    - '**/*'
+    - scripts/**/*
     - appspec.yml
-  base-directory: my-app/scripts
+  base-directory: my-app
   discard-paths: no
