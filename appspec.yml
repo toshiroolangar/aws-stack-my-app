@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/app/scripts
 hooks:
+  ApplicationStop:
+    - location: stop_container.sh
+      timeout: 300
+      runas: root
   BeforeInstall:
     - location: kickstart.sh
       timeout: 300
@@ -12,7 +16,7 @@ hooks:
     - location: pull_image.sh
       timeout: 300
       runas: root
-  StartApplication:
+  ApplicationStart:
     - location: start_container.sh
       timeout: 300
       runas: root
