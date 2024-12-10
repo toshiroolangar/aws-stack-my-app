@@ -7,3 +7,4 @@ if [[ $running_app -eq 1 ]]; then
     #Remove container aws-devops
     docker ps -aq --filter "name=aws-devops" | xargs docker rm
 else echo "There are no running containers"
+fi
