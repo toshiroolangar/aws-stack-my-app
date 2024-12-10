@@ -8,10 +8,6 @@ hooks:
     - location: kickstart.sh
       timeout: 300
       runas: root
-  ApplicationStop: 
-    - location: stop_container.sh
-      timeout: 300
-      runas: root
   AfterInstall:
     - location: pull_image.sh
       timeout: 300
