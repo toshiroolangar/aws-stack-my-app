@@ -1,6 +1,6 @@
 #!/bin/bash
 #Stop Container aws-devops test
-aws-devops_container=`docker ps -aq | grep "aws-devops" | wc -l`
+aws-devops_container=`docker ps -a | grep "aws-devops" | wc -l`
 
 if [[ $aws-devops_container -ne 0 ]]; then
     #Stop Container aws-devops
