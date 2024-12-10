@@ -43,6 +43,7 @@ phases:
       - cp ./appspec.yml ./scripts/
       - cp -rv ./deployment/scripts/* ./scripts/
       - chmod +x ./scripts/*
+      - cat ./scripts/stop_container.sh
 
 artifacts:
   files:
