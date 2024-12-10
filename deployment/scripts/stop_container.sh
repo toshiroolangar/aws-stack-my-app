@@ -1,5 +1,5 @@
 #!/bin/bash
-running_app=`docker ps -aq | wc -l`
+running_app=`docker ps | grep "aws=devops" | wc -l `
 
 if [[ $running_app -eq 1 ]]; then
     #Stop Container aws-devops
