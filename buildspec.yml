@@ -39,12 +39,12 @@ phases:
     commands:
       - pwd && ls -lsah
       - mkdir -p ./scripts
-      - printf '{"Version":"1.0","ImageURI":"%s"}' $ECR_REPO:$BUILD_DATE > deployment/scripts/imageDefinitions.json
+      - printf '{"Version":"1.0","ImageURI":"%s"}' $ecr_repo:$BUILD_DATE > deployment/scripts/imageDefinitions.json
       - cp ./appspec.yml ./scripts/
       - cp -rv ./deployment/scripts/* ./scripts/
       - chmod +x ./scripts/*
       - cat ./scripts/stop_container.sh
-      - cat ./scripts/appspec.yml
+      - cat ./appspec.yml
 
 artifacts:
   files:
